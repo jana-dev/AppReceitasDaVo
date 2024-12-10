@@ -10,6 +10,7 @@
         android:layout_width="90dp"
         android:layout_height="60dp"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bolocenoura" />
@@ -18,12 +19,24 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:fontFamily="sans-serif"
         android:text="Bolo de Cenoura"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:drawableLeft="@drawable/ic_timer_receita"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="60 min"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
