@@ -5,10 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitaViewHolder>() {
+class ReceitasAdapter(
+    val cliqueBotao: (Receita)-> Unit
+) : Adapter<ReceitasAdapter.ReceitaViewHolder>() {
 
     private var listaReceitas = listOf<Receita>()
 
@@ -23,6 +26,7 @@ class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitaViewHolder>() {
         private var textTitulo: TextView
         private var textTempo: TextView
         private var imgReceita: ImageView
+        private var clItem: ConstraintLayout
 
 
         init {
@@ -30,12 +34,19 @@ class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitaViewHolder>() {
             textTitulo = view.findViewById(R.id.text_titulo)
             textTempo = view.findViewById(R.id.text_tempo)
             imgReceita = view.findViewById(R.id.img_receita)
+            clItem = view.findViewById(R.id.cl_item)
         }
 
         fun bind(receita: Receita){
             textTitulo.text = receita.titulo
             textTempo.text = receita.tempo
             imgReceita.setImageResource(receita.imagem)
+
+            //Evento de clique
+            clItem.setOnClickListener {
+                cliqueBotao(receita)
+            }
+
         }
 
     }
